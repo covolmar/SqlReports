@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rittmeyer.WinKP.SqlReports</name>
+    </assembly>
+    <members>
+        <member name="T:Rittmeyer.WinKP.SqlReports.ReportControl">
+            <summary>
+            SQL Report Viewer. Der Report Viewer (Local Mode) veranschaulicht anhand einer Report
+            Definitionsdatei (RDL, Report Definition Language welche in Microsoft SQL
+            Server Reporting Services eingesetzt wird) die aktuellen Daten in der WinKP
+            SQL Datenbank. Reports können mit dem SQL Server Report Builder erstellt 
+            werden.
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>03.01.2017, COM</term>
+            <description>	Erstellt</description></item>
+            </list></remarks>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.REPORT_PATH">
+            <summary>lokaler Reports-Pfad für Benutzer spezifische Vorlagen</summary>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.STANDARD_REPORT_PATH">
+            <summary>lokaler Reports-Pfad für Standard Vorlagen</summary>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.datalayer">
+            <summary>WinKP DataLayer</summary>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.sqlDataAdapter">
+            <summary>WinKP SqlDataAdapter</summary>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.reportTemplates">
+            <summary>Alle vorhandene Report Templates</summary>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.COLUMN_NAME_STATION_ID">
+            <summary>Name der der SQL Spalte "StationId"</summary>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.reportTemplate">
+            <summary> Aktuell ausgewählte ReportTemplate </summary>
+        </member>
+        <member name="T:Rittmeyer.WinKP.SqlReports.ReportControl.RAG_ReportTemplate">
+            <summary>
+            Interne RAG_ReportTemplate Klasse. Kapselt das FileInfo Objekt.
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellt</description></item>
+            </list></remarks>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.RAG_ReportTemplate.fileInfo">
+            <summary> FileInfo des Report Templates </summary>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.RAG_ReportTemplate.#ctor(System.IO.FileInfo)">
+            <summary>
+            Konstruktor
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellt.</description></item>
+            </list></remarks>
+        </member>
+        <member name="P:Rittmeyer.WinKP.SqlReports.ReportControl.RAG_ReportTemplate.ReportFileName">
+            <summary>
+            Beschreibung
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="P:Rittmeyer.WinKP.SqlReports.ReportControl.RAG_ReportTemplate.FileInfo">
+            <summary>
+            Beschreibung
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.RAG_ReportTemplate.ToString">
+            <summary>
+            Überschreibt die Object ToString() Mehtode. Wird für die Combobox Anzeige der
+            Datei Namen verwendet. 
+            verwendet. 
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.#ctor">
+            <summary>
+            Konstruktor
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>27.02.2018, COM</term>
+            <description>	Erstellt.</description></item>
+            </list></remarks>
+        </member>
+        <member name="P:Rittmeyer.WinKP.SqlReports.ReportControl.BusinessObject">
+            <summary>
+            Beschreibung
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="P:Rittmeyer.WinKP.SqlReports.ReportControl.SaveButtonEnabled">
+            <summary>
+            Muss immer False zurück geben, da dieses Control nicht gespeichert werden kann.
+            </summary>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>31.07.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.CancelChanges(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Beschreibung
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.DisplayData(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Beschreibung
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.Help(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Beschreibung
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.InitializeControl(Rittmeyer.Business.Object.ICBusinessObject,Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Beschreibung
+            </summary>
+            <param name="businessObject"></param>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.SaveChanges(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Beschreibung
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.BtnLoadReport_Click(System.Object,System.EventArgs)">
+            <summary>
+            Load Report Button Handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.LoadReport(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Lädt den ausgewählten Report von der SQL Datenbank und stellt diesen im 
+            Report Viewer dar. 
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>05.03.2018, COM</term>
+            <description>	Erstellung</description></item>
+            <item><term>22.03.2018, COM</term>
+            <description>Anpassung auf mehrere DataSets pro Report</description></item>
+            <item><term>27.03.2018, COM</term>
+            <description>falls nach Station gefiltert werden soll und es fehlt die 
+            StationId Spalte in einem verwendetem DataSet, dann Report 
+            Erstellung gleich abbrechen. </description></item>
+            <item><term>04.06.2018, COM</term>
+            <description>datalayer vor dem Laden immer neu initialisieren</description></item>
+            <item><term>14.07.2018, COM</term>
+            <description>Falls von einem vorhandem DataSet im Report keine SQL Daten geladen 
+            werden konnten, dann Report Erstellung sofort abbrechen. </description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.CreateReportDataSet(System.Collections.Generic.IList{System.Data.DataSet},System.Collections.Generic.IDictionary{System.String,System.String},System.Data.DataSet@,Rittmeyer.Error.IErrorHandler,Rittmeyer.Business.Object.IBO_Station)">
+            <summary>
+            Erstellt aus mehreren DataSet Objekten ein einziges DataSet Objekt, welches
+            alle für den Report benötigten DataTables enthält.
+            </summary>
+            <param name="dataSets"></param>
+            <param name="dataSetsInfo"></param>
+            <param name="outDataSet"></param>
+            <param name="errorHandler"></param>
+            <param name="stationToFilter">Wenn Station != null, denn nach dieser Station
+            filtern. </param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>03.01.2017, COM</term>
+            <description>	Erstellung</description></item>
+            <item><term>16.04.2018, COM</term>
+            <description> Filter angepasst. Wenn nach Station gefiltert wird, muss
+            mindestens ein dataSet nach Station gefiltert sein. Sonst kein Report
+            darstellen. </description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.QueryOnStation(System.Data.DataTable,System.Data.DataTable@,Rittmeyer.Business.Object.IBO_Station,Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Filtert das übergebene DataTable nach der ausgewählten Station. 
+            </summary>
+            <param name="originalData"></param>
+            <param name="filteredTableOnStation"></param>
+            <param name="errorHandler"></param>
+            <param name="stationToFilter">Station, nach welcher die Daten gefiltert werden.</param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>05.03.2018, COM</term>
+            <description>	Erstellung</description></item>
+            <item><term>21.03.2018, COM</term>
+            <description>check if column stationId exist</description></item>
+            <item><term>16.04.2018, COM</term>
+            <description> out parameter hinzugefügt.</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.GetDataSetsInfoFromXml(System.Xml.XmlDocument)">
+            <summary>
+            Parst die DataSet Namen und die entprechenden Queries aus dem Report XML
+            </summary>
+            <param name="doc">Report XML</param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            <item><term>22.03.2018, COM</term>
+            <description> refactor für mehrere DataSets im Report </description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.GetQueryFromReportXML(System.Xml.XmlNode)">
+            <summary>
+            Parst die auszuführende Query im Report XML. 
+            </summary>
+            <param name="dataSetNode">Report XML</param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.RenderReportData(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Data.DataSet)">
+            <summary>
+            Rendert den Report im Report Viewer Control. 
+            </summary>
+            <param name="reportFile"></param>
+            <param name="dataSetsInfo"></param>
+            <param name="reportData"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.GetData(System.String,System.String,System.Data.DataSet@,Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Lädt die für den Report benötigten Daten aus der SQL Datenbank. 
+            </summary>
+            <param name="tableName"></param>
+            <param name="query"></param>
+            <param name="reportData"></param>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.LoadCmbReportTemplates(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Füllt die Report Combobox mit den verfügbaren Reports auf dem Dateisystem. 
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>28.02.2018, COM</term>
+            <description>	Erstellung</description></item>
+            <item><term>17.04.2018, COM</term>
+            <description> Reports vom KP_Include laden. </description></item>
+            <item><term>16.06.2018, COM</term>
+            <description>Anpassung für Differenzierung User und Standard Reports. </description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.LoadCmbStation(Rittmeyer.Error.IErrorHandler)">
+            <summary>
+            Füllt die Station Combobox mit allen Riflex Stationen.  
+            </summary>
+            <param name="errorHandler"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>05.03.2018, COM</term>
+            <description>	Erstellung</description></item>
+            <item><term>13.03.2018, POA</term>
+            <description>	Nur RIFLEX Stationen</description></item>
+            <item><term>20.03.2018, COM</term>
+            <description>reverse loop, liste wird während Iteration geändert.</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.cmbReportVorlage_SelectionChangeCommitted(System.Object,System.EventArgs)">
+            <summary>
+            SelectionChangeCommitted - Handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.cmbStation_SelectionChangeCommitted(System.Object,System.EventArgs)">
+            <summary>
+            SelectionChangeCommitted - Handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <remarks><list type="table">
+            <listheader>Änderungen</listheader>
+            <item><term>16.06.2018, COM</term>
+            <description>	Erstellung</description></item>
+            </list></remarks>
+        </member>
+        <member name="F:Rittmeyer.WinKP.SqlReports.ReportControl.components">
+            <summary> 
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.Dispose(System.Boolean)">
+            <summary> 
+            Verwendete Ressourcen bereinigen.
+            </summary>
+            <param name="disposing">True, wenn verwaltete Ressourcen gelöscht werden sollen; andernfalls False.</param>
+        </member>
+        <member name="M:Rittmeyer.WinKP.SqlReports.ReportControl.InitializeComponent">
+            <summary> 
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+    </members>
+</doc>

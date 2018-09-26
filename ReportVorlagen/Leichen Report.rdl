@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="WinKP">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=NBK401161016\RIFLEXDB2014;Initial Catalog="WinKP DB"</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>ab6ac570-c829-4a5d-9be8-92c7bd4428f2</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="VariablenOhneQu">
+      <Query>
+        <DataSourceName>WinKP</DataSourceName>
+        <CommandText>SELECT
+  VariablenEditorView2.StationId
+  ,VariablenEditorView2.VarSenk
+  ,VariablenEditorView2.VarQuell
+  ,VariablenEditorView2.SignalId
+  ,VariablenEditorView2.FullName
+  ,VariablenEditorView2.Bezeichnung
+  ,VariablenEditorView2.GruppeId
+FROM
+  VariablenEditorView2
+WHERE
+  VariablenEditorView2.GruppeId != 0
+  AND VariablenEditorView2.GruppeId != 2
+  AND VariablenEditorView2.VarQuell = N''</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="StationId" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="SignalId" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="FullName" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="Bezeichnung" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+            </SelectedColumns>
+            <Filters>
+              <Filter Operator="!=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+                <FilterValue>0</FilterValue>
+              </Filter>
+              <Filter Operator="!=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+                <FilterValue>2</FilterValue>
+              </Filter>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+                <FilterValue />
+              </Filter>
+            </Filters>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="StationId">
+          <DataField>StationId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VarSenk">
+          <DataField>VarSenk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VarQuell">
+          <DataField>VarQuell</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SignalId">
+          <DataField>SignalId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FullName">
+          <DataField>FullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Bezeichnung">
+          <DataField>Bezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GruppeId">
+          <DataField>GruppeId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Signal">
+      <Query>
+        <DataSourceName>WinKP</DataSourceName>
+        <CommandText>SELECT
+  SignalView.riflex_signal_variable_count
+  ,SignalView.SignalId
+FROM
+  SignalView
+WHERE
+  SignalView.riflex_signal_variable_count = 0</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_name" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_name_1" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_name_2" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_name_3" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_name" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_description" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_description_1" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_description_2" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_plant_object_description_3" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_description" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_type" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_variable_count" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="SignalId" />
+            </SelectedColumns>
+            <Filters>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_variable_count" />
+                <FilterValue>0</FilterValue>
+              </Filter>
+            </Filters>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Signale_ohne_Variablen">
+          <DataField>riflex_signal_variable_count</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SignalId">
+          <DataField>SignalId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="VariablenOhneSe">
+      <Query>
+        <DataSourceName>WinKP</DataSourceName>
+        <CommandText>SELECT
+  VariablenEditorView2.StationId
+  ,VariablenEditorView2.VarSenk
+  ,VariablenEditorView2.VarQuell
+  ,VariablenEditorView2.SignalId
+  ,VariablenEditorView2.FullName
+  ,VariablenEditorView2.Bezeichnung
+  ,VariablenEditorView2.GruppeId
+FROM
+  VariablenEditorView2
+WHERE
+  VariablenEditorView2.GruppeId != 0
+  AND VariablenEditorView2.GruppeId != 2
+  AND VariablenEditorView2.VarSenk = N''</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="StationId" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="SignalId" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="FullName" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="Bezeichnung" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+            </SelectedColumns>
+            <Filters>
+              <Filter Operator="!=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+                <FilterValue>0</FilterValue>
+              </Filter>
+              <Filter Operator="!=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+                <FilterValue>2</FilterValue>
+              </Filter>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+                <FilterValue />
+              </Filter>
+            </Filters>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="StationId">
+          <DataField>StationId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VarSenk">
+          <DataField>VarSenk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VarQuell">
+          <DataField>VarQuell</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SignalId">
+          <DataField>SignalId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FullName">
+          <DataField>FullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Bezeichnung">
+          <DataField>Bezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GruppeId">
+          <DataField>GruppeId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="VariablenOhneQuSe">
+      <Query>
+        <DataSourceName>WinKP</DataSourceName>
+        <CommandText>SELECT
+  VariablenEditorView2.StationId
+  ,VariablenEditorView2.VarSenk
+  ,VariablenEditorView2.VarQuell
+  ,VariablenEditorView2.SignalId
+  ,VariablenEditorView2.FullName
+  ,VariablenEditorView2.Bezeichnung
+  ,VariablenEditorView2.GruppeId
+FROM
+  VariablenEditorView2
+WHERE
+  VariablenEditorView2.GruppeId != 0
+  AND VariablenEditorView2.GruppeId != 2
+  AND VariablenEditorView2.VarSenk = N''
+  AND VariablenEditorView2.VarQuell = N''</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="StationId" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="SignalId" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="FullName" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="Bezeichnung" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+            </SelectedColumns>
+            <Filters>
+              <Filter Operator="!=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+                <FilterValue>0</FilterValue>
+              </Filter>
+              <Filter Operator="!=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="GruppeId" />
+                <FilterValue>2</FilterValue>
+              </Filter>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+                <FilterValue />
+              </Filter>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+                <FilterValue />
+              </Filter>
+            </Filters>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="StationId">
+          <DataField>StationId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="VarSenk">
+          <DataField>VarSenk</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VarQuell">
+          <DataField>VarQuell</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SignalId">
+          <DataField>SignalId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FullName">
+          <DataField>FullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Bezeichnung">
+          <DataField>Bezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GruppeId">
+          <DataField>GruppeId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Leichen">
+      <Query>
+        <DataSourceName>WinKP</DataSourceName>
+        <CommandText>SELECT
+	(SELECT Count(*) FROM dbo.SignalView WHERE (riflex_signal_variable_count = 0)) as "signal_ohne_variablen",
+	(SELECT Count(*) FROM dbo.SignalView) as "signale", 
+	(SELECT Count(*) FROM dbo.VariableView2) as variable, 
+	(SELECT Count(*) FROM dbo.VariablenEditorView2 WHERE VarQuell = '') as "variablen_ohne_quelle", 
+	(SELECT Count(*) FROM dbo.VariablenEditorView2 WHERE VarSenk = '') as "variablen_ohne_senke", 
+	(SELECT Count(*) FROM dbo.VariablenEditorView2 WHERE (VarQuell = '' AND VarSenk = '')) as "variablen_ohne_quelle_und_senke"</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <AutoJoin>False</AutoJoin>
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_name" />
+              <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_variable_count" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+              <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+              <ColumnExpression ColumnOwner="SignalFullName" ColumnName="Name" />
+              <ColumnExpression ColumnOwner="Variable" ColumnName="SignalId" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="SignalView" />
+              <Join Type="INNER JOIN" ColumnOwner="VariablenEditorView2">
+                <On>
+                  <From ColumnOwner="SignalView" ColumnName="SignalId" />
+                  <To ColumnOwner="VariablenEditorView2" ColumnName="SignalId" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="SignalFullName">
+                <On>
+                  <From ColumnOwner="SignalFullName" ColumnName="Id" />
+                  <To ColumnOwner="SignalView" ColumnName="SignalId" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="Variable">
+                <On>
+                  <From ColumnOwner="Variable" ColumnName="SignalId" />
+                  <To ColumnOwner="SignalView" ColumnName="SignalId" />
+                </On>
+              </Join>
+            </Joins>
+            <Filters>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="SignalView" ColumnName="riflex_signal_variable_count" />
+                <FilterValue>0</FilterValue>
+              </Filter>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarQuell" />
+                <FilterValue />
+              </Filter>
+              <Filter Operator="=">
+                <ColumnExpression ColumnOwner="VariablenEditorView2" ColumnName="VarSenk" />
+                <FilterValue />
+              </Filter>
+            </Filters>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="signal_ohne_variablen">
+          <DataField>signal_ohne_variablen</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="signale">
+          <DataField>signale</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="variable">
+          <DataField>variable</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="variablen_ohne_quelle">
+          <DataField>variablen_ohne_quelle</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="variablen_ohne_senke">
+          <DataField>variablen_ohne_senke</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="variablen_ohne_quelle_und_senke">
+          <DataField>variablen_ohne_quelle_und_senke</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="ReportTitle">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Leichen Report</Value>
+                    <Style>
+                      <FontSize>28pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <rd:DefaultName>ReportTitle</rd:DefaultName>
+            <Top>0mm</Top>
+            <Left>0.84349cm</Left>
+            <Height>12.7mm</Height>
+            <Width>139.7mm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>  Variablen ohne Quelle</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Count(Fields!FullName.Value, "VariablenOhneQu")</Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>30.66409mm</Top>
+            <Left>102.45747mm</Left>
+            <Height>46.67238mm</Height>
+            <Width>88.71421mm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Gold</BackgroundColor>
+              <BackgroundImage>
+                <Source>Embedded</Source>
+                <Value>angel</Value>
+              </BackgroundImage>
+              <VerticalAlign>Top</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>  Variablen ohne Senken</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Count(Fields!FullName.Value, "VariablenOhneSe")</Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>30.66409mm</Top>
+            <Left>196.11056mm</Left>
+            <Height>46.67238mm</Height>
+            <Width>88.71421mm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Orange</BackgroundColor>
+              <BackgroundImage>
+                <Source>Embedded</Source>
+                <Value>skull</Value>
+              </BackgroundImage>
+              <VerticalAlign>Top</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>  Signale ohne Variablen</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Count(Fields!Signale_ohne_Variablen.Value, "Signal")</Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>30.6641mm</Top>
+            <Left>8.43492mm</Left>
+            <Height>46.67238mm</Height>
+            <Width>88.71421mm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>SteelBlue</BackgroundColor>
+              <BackgroundImage>
+                <Source>Embedded</Source>
+                <Value>explosion</Value>
+              </BackgroundImage>
+              <VerticalAlign>Top</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>  Variablen ohne Quelle und Senken</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Count(Fields!FullName.Value, "VariablenOhneQuSe")</Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>48pt</FontSize>
+                      <Color>DimGray</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>30.66409mm</Top>
+            <Left>289.55576mm</Left>
+            <Height>46.67238mm</Height>
+            <Width>92.94754mm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Tomato</BackgroundColor>
+              <BackgroundImage>
+                <Source>Embedded</Source>
+                <Value>devil</Value>
+              </BackgroundImage>
+              <VerticalAlign>Top</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>98.75741mm</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>399.34743mm</Width>
+      <Page>
+        <PageFooter>
+          <Height>27.305mm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="devil">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="explosion">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="skull">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="angel">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Mm</rd:ReportUnitType>
+  <rd:ReportID>d52e4890-e7b1-414e-8a91-edbc3d25d171</rd:ReportID>
+</Report>
